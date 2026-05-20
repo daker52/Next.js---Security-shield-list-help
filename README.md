@@ -53,9 +53,9 @@
 | Security guide & checklist | ✅ Ready |
 | Curated resource links | ✅ Ready |
 | Reference code snippets | ✅ Ready |
-| Full boilerplate scaffold | 🚧 Roadmap |
+| Full boilerplate scaffold | ✅ Ready |
 
-> Star the repo to follow the upcoming boilerplate release.
+> Clone, `npm ci`, copy `.env.example` → `.env.local`, then `npm run dev`.
 
 </td>
 </tr>
@@ -252,15 +252,29 @@ cd Next.js---Security-shield-list-help
 | 🏗️ | Scaffold your app using the [folder structure](#-recommended-project-structure) |
 | 🔧 | Paste & adapt the [header snippet](#security-headers-nextconfigts) |
 
-### 3. Bootstrap a new Next.js app (when building from scratch)
+### 3. Configure environment
 
 ```bash
-npx create-next-app@latest my-secure-app --typescript --tailwind --app --src-dir
-cd my-secure-app
-npm ci
-cp .env.example .env.local   # create from your template
-openssl rand -base64 32      # AUTH_SECRET / NEXTAUTH_SECRET
+cp .env.example .env.local
+# Generate AUTH_SECRET (required for production):
+openssl rand -base64 32
+```
+
+Paste the output into `.env.local` as `AUTH_SECRET=...`
+
+### 4. Run locally
+
+```bash
 npm run dev
+# → http://localhost:3000
+# Register → /register → Sign in → /dashboard
+```
+
+### 5. Security scripts
+
+```bash
+npm run security:audit   # npm audit (moderate+)
+npm run security:check   # headers, env leaks, .gitignore (bash)
 ```
 
 ### 4. Environment variables — rules of thumb
