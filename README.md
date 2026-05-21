@@ -61,6 +61,13 @@
 </tr>
 </table>
 
+### Security ecosystem
+
+| Repo | Role |
+|------|------|
+| **[App Router Security Lab](https://github.com/daker52/nextjs-app-router-security-lab)** | Learn how each vulnerability works (`vulnerable/` → `secure/`) |
+| **[Open Source Pentest Toolkit](https://github.com/daker52/opensource-pentest-toolkit)** | OSS tools to detect issues in real engagements |
+
 ---
 
 ## 📑 Table of Contents
